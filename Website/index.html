@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ISOForge</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="banner">
+      <div id="banner-inner">
+        <div>
+          <h1>ISOForge</h1>
+          <p>A Multiboot USB Solution</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="topnav">
+      <ul>
+        <li><a href="#" data-page="home" class="active">Home</a></li>
+        <li><a href="#" data-page="download">Download</a></li>
+        <li><a href="#" data-page="docs">Documentation</a></li>
+        <li>
+          <a href="https://github.com/T3rr8us-P4nk/ISOForge" target="_blank"
+            >GitHub ↗</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div id="layout">
+      <div id="sidebar">
+        <a href="#" data-page="home" class="active">Main page</a>
+        <a href="#" data-page="download">Download</a>
+        <div class="sidebar-sep"></div>
+        <a href="#" data-page="docs">Documentation</a>
+        <a href="#" data-page="docs-install">Installation</a>
+        <a href="#" data-page="docs-structure">Project Structure</a>
+        <a href="#" data-page="docs-grub">GRUB Setup</a>
+        <a href="#" data-page="docs-build">Build from Source</a>
+        <div class="sidebar-sep"></div>
+        <a href="https://github.com/T3rr8us-P4nk/ISOForge" target="_blank"
+          >GitHub ↗</a
+        >
+      </div>
+
+      <div id="content">
+        <div class="page active" id="page-home">
+          <h2>What is ISOForge</h2>
+          <p>
+            ISOForge is an open source Windows CLI tool to create multiboot USB
+            drives from ISO files.<br />
+            With ISOForge, you don't need to reformat the disk every time — just
+            copy your ISO files to the USB drive and boot them directly.<br />
+            ISOForge will partition your USB, install GRUB2, and give you a boot
+            menu to select any ISO at startup.<br />
+            Both x86 Legacy BIOS and x86_64 UEFI are supported on the same
+            drive.
+          </p>
+
+          <h2>Features</h2>
+          <ul>
+            <li>Simple Windows CLI — no GUI required</li>
+            <li>Boot directly from ISO files, no extraction needed</li>
+            <li>GRUB2 boot menu with automatic ISO detection</li>
+            <li>Two-partition layout: FAT32 bootloader + NTFS storage</li>
+            <li>x86 Legacy BIOS and x86_64 UEFI supported on the same USB</li>
+            <li>Both MBR and GPT partition styles supported</li>
+            <li>ISO files larger than 4GB supported</li>
+            <li>Custom GRUB theme support</li>
+            <li>Storage partition usable as a normal USB drive</li>
+            <li>No need to reformat when adding new ISOs</li>
+          </ul>
+
+          <h2>Contact</h2>
+          <p>
+            Source code, issues and releases:
+            <a href="https://github.com/T3rr8us-P4nk/ISOForge" target="_blank"
+              >github.com/T3rr-P4nk</a
+            ><br />
+            Made by <strong>ImJcDev</strong>.
+          </p>
+        </div>
+
+        <div class="page" id="page-download">
+          <h2>Download</h2>
+          <p>
+            Download the latest release of ISOForge below. Windows only. Run as
+            Administrator.
+          </p>
+
+          <table
+            style="
+              border-collapse: collapse;
+              font-size: 13px;
+              margin-bottom: 14px;
+            "
+          >
+            <tr>
+              <th
+                style="
+                  background: #1a1a2e;
+                  color: #fff;
+                  padding: 6px 14px;
+                  border: 1px solid #374151;
+                  text-align: left;
+                "
+              >
+                Version
+              </th>
+              <th
+                style="
+                  background: #1a1a2e;
+                  color: #fff;
+                  padding: 6px 14px;
+                  border: 1px solid #374151;
+                  text-align: left;
+                "
+              >
+                Platform
+              </th>
+              <th
+                style="
+                  background: #1a1a2e;
+                  color: #fff;
+                  padding: 6px 14px;
+                  border: 1px solid #374151;
+                  text-align: left;
+                "
+              >
+                Link
+              </th>
+            </tr>
+            <tr>
+              <td style="padding: 6px 14px; border: 1px solid #e5e7eb">v1.0</td>
+              <td style="padding: 6px 14px; border: 1px solid #e5e7eb">
+                Windows x64
+              </td>
+              <td style="padding: 6px 14px; border: 1px solid #e5e7eb">
+                <a href="https://github.com/T3rr8us-P4nk/" target="_blank"
+                  >GitHub Releases ↗</a
+                >
+              </td>
+            </tr>
+          </table>
+
+          <div class="note">
+            <strong>Note:</strong> Always run <code>ISOForge.exe</code> as
+            Administrator. It writes directly to disk and requires elevated
+            privileges.
+          </div>
+
+          <h2>Requirements</h2>
+          <ul>
+            <li>Windows 10 / 11 (x64)</li>
+            <li>A USB drive (8GB or larger recommended)</li>
+            <li>Administrator privileges</li>
+          </ul>
+        </div>
+
+        <div class="page" id="page-docs">
+          <h2>Documentation</h2>
+          <ul>
+            <li>
+              <a href="#" data-page="docs-install">Installation</a> —
+              step-by-step setup guide
+            </li>
+            <li>
+              <a href="#" data-page="docs-structure">Project Structure</a> —
+              folder structure and partition layout
+            </li>
+            <li>
+              <a href="#" data-page="docs-grub">GRUB Setup</a> — how the
+              bootloader works, grub.cfg reference, generate core.img, and
+              bootx64.efi
+            </li>
+            <li>
+              <a href="#" data-page="docs-build">Build from Source</a> — test
+              and package the exe
+            </li>
+          </ul>
+
+          <h2>Project Info</h2>
+          <table style="border-collapse: collapse; font-size: 13px">
+            <tr>
+              <td
+                style="padding: 4px 12px 4px 0; font-weight: bold; color: #555"
+              >
+                Tool
+              </td>
+              <td style="padding: 4px 0">ISOForge Bootloader</td>
+            </tr>
+            <tr>
+              <td
+                style="padding: 4px 12px 4px 0; font-weight: bold; color: #555"
+              >
+                Developer
+              </td>
+              <td style="padding: 4px 0">ImJcDev</td>
+            </tr>
+            <tr>
+              <td
+                style="padding: 4px 12px 4px 0; font-weight: bold; color: #555"
+              >
+                Version
+              </td>
+              <td style="padding: 4px 0">1.0</td>
+            </tr>
+            <tr>
+              <td
+                style="padding: 4px 12px 4px 0; font-weight: bold; color: #555"
+              >
+                Platform
+              </td>
+              <td style="padding: 4px 0">Windows (CLI)</td>
+            </tr>
+            <tr>
+              <td
+                style="padding: 4px 12px 4px 0; font-weight: bold; color: #555"
+              >
+                Bootloader
+              </td>
+              <td style="padding: 4px 0">GRUB2</td>
+            </tr>
+            <tr>
+              <td
+                style="padding: 4px 12px 4px 0; font-weight: bold; color: #555"
+              >
+                Source
+              </td>
+              <td style="padding: 4px 0">
+                <a
+                  href="https://github.com/T3rr8us-P4nk/ISOForge"
+                  target="_blank"
+                  >github.com/T3rr8us-P4nk</a
+                >
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="page" id="page-docs-install">
+          <h2>Installation</h2>
+          <p>Follow these steps to set up ISOForge on your USB drive.</p>
+
+          <ol class="steps">
+            <li>
+              <strong>Step 1</strong> — Open <code>ISOForge.exe</code> as
+              Administrator.
+            </li>
+            <li>
+              <strong>Step 2</strong> — Select option <code>1</code> and press
+              Enter.
+            </li>
+            <li>
+              <strong>Step 3</strong> — Enter the
+              <strong>Disk number</strong> of your USB drive, then enter
+              <code>Y</code> to confirm and continue.
+            </li>
+            <li>
+              <strong>Step 4</strong> — Enter the
+              <strong>drive letter</strong> assigned to the 1st partition of the
+              USB — the partition labeled <strong>ISOFORGE</strong>.
+            </li>
+            <li>
+              <strong>Step 5</strong> — Open the 2nd partition of the USB — the
+              partition labeled <strong>STORAGE</strong>.
+            </li>
+            <li>
+              <strong>Step 6</strong> — Create a folder for your ISO files (e.g.
+              <code>ISOs\</code>) to keep things organized, then copy your ISO
+              files into it.
+            </li>
+          </ol>
+
+          <div class="note">
+            <strong>Important:</strong> Do not edit or delete the
+            <code>boot\</code> and <code>EFI\</code> folder on the ISOFORGE
+            partition. It contains the GRUB2 bootloader files required to boot.
+          </div>
+
+          <h3>After Setup</h3>
+          <p>
+            Your USB is ready. Plug it into any computer, boot from USB, and
+            ISOForge will show a GRUB2 menu listing all detected ISO files.
+          </p>
+        </div>
+
+        <div class="page" id="page-docs-structure">
+          <h2>Project Structure</h2>
+
+          <pre class="tree">
+ISOForge Bootloader/
+  ├── main.py
+  ├── dd.exe
+  ├── EFI/
+  │    └── BOOT/
+  │         └── bootx64.efi
+  └── boot/
+       └── grub/
+            ├── grub.cfg
+            ├── themes/
+            │    └── isoforge/
+            │         ├── theme.txt
+            │         └── background.png
+            ├── i386-pc/
+            └── x86_64-efi/</pre
+          >
+          <h3>How Project Works</h3>
+          <pre>
+1. Detects connected Drivers
+2. User selects which USB driver to use
+3. Partitions USB into two partitions:
+   - Partition 1: FAT32 (ISOFORGE) - bootloader files
+   - Partition 2: NTFS (STORAGE) - ISO files, and user personal files
+4. Copies boot/ and EFI/ folder to Partition 1
+5. Writes boot.img to USB MBR
+6. Writes core.img after MBR
+7. USB is ready - User create "ISOs/" folder and copies ISO files to Partition 2</pre
+          >
+
+          <p>
+            After setup, your USB drive will have two partitions with the
+            following layout:
+          </p>
+
+          <pre class="tree">
+USB Partition 1 (FAT32 — ISOFORGE)/
+  ├── EFI/
+  │    └── BOOT/
+  │         └── bootx64.efi
+  └── boot/
+       └── grub/
+            ├── grub.cfg
+            ├── themes/
+            │    └── isoforge/
+            │         ├── theme.txt
+            │         └── background.png
+            ├── i386-pc/
+            └── x86_64-efi/
+
+USB Partition 2 (NTFS — STORAGE)/
+  └── ISOs/
+       └── (put your ISO files here)</pre
+          >
+
+          <h3>Partition 1 — ISOFORGE (FAT32)</h3>
+          <p>
+            Contains all GRUB2 bootloader files, the EFI binary for UEFI boot,
+            and the theme.
+            <strong>Do not modify or delete anything here.</strong>
+          </p>
+
+          <h3>Partition 2 — STORAGE (NTFS)</h3>
+          <p>
+            This is where you store your ISO files. It works as a normal USB
+            partition — you can also store personal files here alongside your
+            ISOs.
+          </p>
+
+          <h3>Python Libraries Used</h3>
+          <table
+            style="
+              border-collapse: collapse;
+              font-size: 13px;
+              width: 100%;
+              margin-bottom: 12px;
+            "
+          >
+            <tr>
+              <th
+                style="
+                  background: #1a1a2e;
+                  color: #fff;
+                  padding: 5px 10px;
+                  border: 1px solid #374151;
+                  text-align: left;
+                "
+              >
+                Library
+              </th>
+              <th
+                style="
+                  background: #1a1a2e;
+                  color: #fff;
+                  padding: 5px 10px;
+                  border: 1px solid #374151;
+                  text-align: left;
+                "
+              >
+                Purpose
+              </th>
+              <th
+                style="
+                  background: #1a1a2e;
+                  color: #fff;
+                  padding: 5px 10px;
+                  border: 1px solid #374151;
+                  text-align: left;
+                "
+              >
+                Docs
+              </th>
+            </tr>
+            <tr>
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                psutil
+              </td>
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                USB drive detection
+              </td>
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                <a href="https://psutil.readthedocs.io/stable/" target="_blank"
+                  >docs ↗</a
+                >
+              </td>
+            </tr>
+            <tr style="background: #f9fafb">
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                subprocess
+              </td>
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                Run system commands
+              </td>
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                <a
+                  href="https://docs.python.org/3/library/subprocess.html"
+                  target="_blank"
+                  >docs ↗</a
+                >
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                shutil
+              </td>
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                Copy files and folders
+              </td>
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                <a
+                  href="https://docs.python.org/3/library/shutil.html"
+                  target="_blank"
+                  >docs ↗</a
+                >
+              </td>
+            </tr>
+            <tr style="background: #f9fafb">
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                pathlib
+              </td>
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                File path handling
+              </td>
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                <a
+                  href="https://docs.python.org/3/library/pathlib.html"
+                  target="_blank"
+                  >docs ↗</a
+                >
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">os</td>
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                System operations
+              </td>
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                <a
+                  href="https://docs.python.org/3/library/os.html"
+                  target="_blank"
+                  >docs ↗</a
+                >
+              </td>
+            </tr>
+            <tr style="background: #f9fafb">
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                ctypes
+              </td>
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                Windows API — write MBR/core.img to disk
+              </td>
+              <td style="padding: 5px 10px; border: 1px solid #e5e7eb">
+                <a
+                  href="https://docs.python.org/3/library/ctypes.html"
+                  target="_blank"
+                  >docs ↗</a
+                >
+              </td>
+            </tr>
+          </table>
+
+          <h3>External Tools</h3>
+          <ul>
+            <li>
+              <a
+                href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/diskpart"
+                target="_blank"
+                >Diskpart</a
+              >
+              — Windows built-in disk partitioning tool
+            </li>
+            <li>
+              GRUB2 for Windows —
+              <a href="https://ftp.gnu.org/gnu/grub/" target="_blank"
+                >grub-2.14-for-windows.zip</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="page" id="page-docs-grub">
+          <h2>GRUB2 Setup</h2>
+          <p>
+            ISOForge uses GRUB2 as its bootloader. The configuration is stored
+            in <code>boot/grub/grub.cfg</code> on the ISOFORGE partition.
+          </p>
+
+          <h3>How GRUB Finds the USB</h3>
+          <p>
+            A small config called <code>grub_early.cfg</code> is embedded
+            directly into <code>core.img</code> and <code>bootx64.efi</code> at
+            build time. It tells GRUB to search for the partition labeled
+            <strong>ISOFORGE</strong> on any computer, so the USB works
+            regardless of which disk number it gets assigned.
+          </p>
+
+          <pre>
+search --no-floppy --label --set=root ISOFORGE
+set prefix=($root)/boot/grub
+configfile ($root)/boot/grub/grub.cfg</pre
+          >
+
+          <h3>WSL Requirements (one time)</h3>
+          <pre>
+sudo apt install grub-pc-bin grub-efi-amd64-bin xorriso mtools qemu-system-x86 -y</pre
+          >
+
+          <h3>Generate core.img (BIOS)</h3>
+
+          <p><strong>Step 1</strong> — Create <code>grub_early.cfg</code></p>
+          <pre>
+cat > ~/grub_early.cfg << 'EOF'
+search --no-floppy --label --set=root ISOFORGE
+set prefix=($root)/boot/grub
+configfile ($root)/boot/grub/grub.cfg
+EOF</pre
+          >
+
+          <p><strong>Step 2</strong> — Generate <code>core.img</code></p>
+          <pre>
+grub-mkimage -o ~/core.img -O i386-pc -p "/boot/grub" -c ~/grub_early.cfg \
+  biosdisk part_msdos part_gpt fat ext2 ntfs iso9660 \
+  search search_fs_file search_fs_uuid search_label \
+  configfile normal linux linux16 loopback echo ls \
+  reboot halt sleep test regexp \
+  all_video gfxterm gfxmenu gfxterm_background video video_fb png jpeg</pre
+          >
+
+          <p><strong>Step 3</strong> — Copy to project folder</p>
+          <pre>
+cp ~/core.img /mnt/c/Projects/Python/ISOForge\ Bootloader/boot/grub/i386-pc/</pre
+          >
+
+          <h3>Generate bootx64.efi (UEFI)</h3>
+          <pre>
+grub-mkimage -o ~/bootx64.efi -O x86_64-efi -p "/boot/grub" -c ~/grub_early.cfg \
+  part_msdos part_gpt fat ext2 ntfs iso9660 \
+  search search_fs_file search_fs_uuid search_label \
+  configfile normal linux linux16 loopback echo ls \
+  reboot halt sleep test regexp \
+  all_video gfxterm gfxmenu gfxterm_background video video_fb png jpeg
+
+cp ~/bootx64.efi /mnt/c/Projects/Python/ISOForge\ Bootloader/EFI/boot/</pre
+          >
+
+          <h3>GRUB References</h3>
+          <ul>
+            <li>
+              <a
+                href="https://www.gnu.org/software/grub/manual/grub/grub.html"
+                target="_blank"
+                >GRUB Official Manual</a
+              >
+            </li>
+            <li>
+              <a href="https://wiki.archlinux.org/title/GRUB" target="_blank"
+                >Arch Wiki — GRUB</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="page" id="page-docs-build">
+          <h2>Build from Source</h2>
+          <p>
+            These steps are for developers who want to regenerate the bootloader
+            binaries or package the exe themselves. Requires WSL (Windows
+            Subsystem for Linux).
+          </p>
+
+          <h3>Test with QEMU</h3>
+          <pre>
+# Copy boot folder to WSL
+cp -r /mnt/c/Projects/Python/ISOForge\ Bootloader/boot ~/isoforge/
+
+# Generate ISO
+sudo grub-mkrescue -o ~/isoforge.iso ~/isoforge/
+
+# Copy ISO back to Windows
+cp ~/isoforge.iso /mnt/c/Projects/Python/ISOForge\ Bootloader/
+
+# Run in QEMU
+qemu-system-x86_64 -cdrom /mnt/c/Projects/Python/ISOForge\ Bootloader/isoforge.iso -boot d -m 512</pre
+          >
+
+          <h3>Package as .exe (PyInstaller)</h3>
+
+          <p><strong>Step 1</strong> — Install PyInstaller</p>
+          <pre>py -m pip install pyinstaller</pre>
+
+          <p><strong>Step 2</strong> — Build</p>
+          <pre>
+py -m PyInstaller --onedir --add-data "boot;boot" --add-data "EFI;EFI" --name "ISOForge" main.py</pre
+          >
+          <div class="note">
+            <strong>Note:</strong> The <code>.exe</code> will be in
+            <code>dist/ISOForge/</code>. Manually copy the
+            <code>boot/</code> and <code>EFI/</code> folders into that directory
+            alongside the executable.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      isoforge &mdash; by
+      <a href="https://github.com/ImJcDev" target="_blank">ImJcDev</a> &mdash;
+      v1.0 &mdash; open source &mdash; &copy; 2026
+    </div>
+
+    <script>
+      function navigate(id) {
+        document.querySelectorAll(".page").forEach(function (p) {
+          p.classList.remove("active");
+        });
+        var target = document.getElementById("page-" + id);
+        if (target) target.classList.add("active");
+
+        document
+          .querySelectorAll("#sidebar a, #topnav a")
+          .forEach(function (a) {
+            a.classList.remove("active");
+          });
+        document
+          .querySelectorAll('[data-page="' + id + '"]')
+          .forEach(function (a) {
+            if (a.tagName === "A") a.classList.add("active");
+          });
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener("click", function (e) {
+        var el = e.target;
+        while (el && el !== document) {
+          var pg = el.getAttribute && el.getAttribute("data-page");
+          if (pg) {
+            e.preventDefault();
+            navigate(pg);
+            return;
+          }
+          el = el.parentNode;
+        }
+      });
+    </script>
+  </body>
+</html>

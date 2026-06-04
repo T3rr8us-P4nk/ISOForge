@@ -1,0 +1,18 @@
+title-text: ""
+
+desktop-image: "background.png"
+desktop-color: "#0d0d0d"
+
+
++ boot_menu {
+    left = 5%
+    top = 60%
+    width = 50%
+    height = 35%
+    item_color = "#ffffff"
+    selected_item_color = "#ffff00"
+    item_height = 30
+    item_padding = 5
+    item_spacing = 10
+    scrollbar = false
+}
